@@ -1,0 +1,16 @@
+.container {
+    border: 5px solid lightgrey;
+    border-radius: 9px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 210px;
+    font-family: Calibri, serif;
+}
+
+p {
+    margin: 5px;
+}
+
+.text_min {
+    font-size: 12px;
+}
