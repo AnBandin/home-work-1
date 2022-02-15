@@ -5,18 +5,20 @@ export default function Auth() {
   let password = '';
 
   function onChangeInput(event) {
-    event.target.type === 'text'
-      ? (email = event.target.value)
-      : (password = event.target.value);
+    if (event.target.type === 'text') {
+      email = event.target.value;
+    } else {
+      password = event.target.value;
+    }
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    email.trim() && password.trim()
-      ? console.log({email, password})
-      : alert('Почему поля пустые, а?!');
-    email = password = '';
-    event.target.reset();
+    if (email.trim() && password.trim()) {
+      console.log({email, password});
+      email = password = '';
+      event.target.reset();
+    } else alert('Почему поля пустые, а?!');
   }
 
   return (
