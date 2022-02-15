@@ -18,7 +18,9 @@ export default function Auth() {
       console.log({email, password});
       email = password = '';
       event.target.reset();
-    } else alert('Почему поля пустые, а?!');
+    } else {
+      alert('Почему поля пустые, а?!');
+    }
   }
 
   return (
