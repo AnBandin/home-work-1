@@ -1,0 +1,25 @@
+
+input, button {
+    border: 1px solid #a4a4a4;
+    outline: none;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #efeeef;
+}
+
+input:focus {
+    border: 2px solid #718baa;
+    outline: none;
+}
+
+button {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+li {
+    margin: 10px 0;
+}
+
