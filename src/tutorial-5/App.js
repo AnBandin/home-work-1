@@ -18,13 +18,11 @@ export default function App() {
     obj[event.target.id] = event.target.value;
   };
 
-  const createObject = (event) => {
-    event.preventDefault();
+  const createObject = () => {
     obj.createdAt = new Date()
       .toLocaleString('en-US', options)
       .replaceAll(',', '');
     setComments((prevState) => [...prevState, obj]);
-    event.target.reset();
   };
 
   useEffect(() => {
@@ -41,7 +39,7 @@ export default function App() {
               review={value}
               index={index}
               urlEdit={setComments}
-              key={index}
+              key={`${value.fullName}__${value.createdAt}`}
             />
           ))}
         </List>
