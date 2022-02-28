@@ -1,9 +1,25 @@
 import {Button, TextField, Typography} from '@material-ui/core';
-import React from 'react';
+import React, {useState} from 'react';
 
 export default function Form({urlCreate, urlEdit}) {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [text, setText] = useState('');
+
+  const onChangeInput = (event, func) => {
+    urlEdit(event);
+    func(event.target.value);
+  };
+
+  const clean = () => {
+    urlCreate();
+    setFullName('');
+    setEmail('');
+    setText('');
+  };
+
   return (
-    <form onSubmit={urlCreate}>
+    <>
       <Typography variant="h6">Обратная связь:</Typography>
       <TextField
         id="fullName"
@@ -11,7 +27,8 @@ export default function Form({urlCreate, urlEdit}) {
         variant="outlined"
         margin="normal"
         fullWidth={true}
-        onChange={urlEdit}
+        value={fullName}
+        onChange={(event) => onChangeInput(event, setFullName)}
       />
       <TextField
         id="email"
@@ -19,7 +36,8 @@ export default function Form({urlCreate, urlEdit}) {
         variant="outlined"
         margin="normal"
         fullWidth={true}
-        onChange={urlEdit}
+        value={email}
+        onChange={(event) => onChangeInput(event, setEmail)}
       />
       <TextField
         id="text"
@@ -28,10 +46,12 @@ export default function Form({urlCreate, urlEdit}) {
         margin="normal"
         multiline
         fullWidth={true}
-        onChange={urlEdit}
+        value={text}
+        onChange={(event) => onChangeInput(event, setText)}
       />
 
       <Button
+        onClick={clean}
         type="submit"
         value="Submit"
         variant="contained"
@@ -40,6 +60,6 @@ export default function Form({urlCreate, urlEdit}) {
       >
         Отправить
       </Button>
-    </form>
+    </>
   );
 }
