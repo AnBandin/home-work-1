@@ -1,0 +1,16 @@
+.wrapper {
+    width: 100%;
+}
+
+.reviews {
+    padding: 25px;
+    width: 500px;
+    margin: 10px auto;
+    border: #dcdcdc 1px solid;
+}
+
+.MuiOutlinedInput-multiline {
+    height: 150px;
+    align-items: baseline !important;
+}
+
