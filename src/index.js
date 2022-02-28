@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import {StrictMode} from 'react';
-import App from './tutorial-3/App';
+import App from './tutorial-5/App';
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
