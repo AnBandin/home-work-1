@@ -14,3 +14,8 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+
+.login-form {
+    width: 500px;
+    margin: 0 auto;
+}
