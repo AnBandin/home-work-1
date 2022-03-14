@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Nav} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {useLocation, useNavigate} from 'react-router';
@@ -8,11 +8,21 @@ export const Header = () => {
   const {pathname} = useLocation();
   const navigate = useNavigate();
   const token = window.localStorage.getItem('token');
+  const [isAuth, setAuth] = useState(false);
+
+  useEffect(() => {
+    if (token) {
+      setAuth(true);
+    } else {
+      setAuth(false);
+    }
+  }, [pathname]);
 
   const switchAuth = () => {
     if (token) {
       window.localStorage.removeItem('token');
       navigate('/');
+      setAuth(false);
     } else {
       navigate('/auth');
     }
@@ -42,8 +52,8 @@ export const Header = () => {
         </Nav.Item>
         {
           <Nav.Item>
-            <Button variant={!token ? 'link' : 'danger'} onClick={switchAuth}>
-              {!token ? 'Авторизироваться' : 'Выйти'}
+            <Button variant={isAuth ? 'danger' : 'link'} onClick={switchAuth}>
+              {isAuth ? 'Выйти' : 'Авторизироваться'}
             </Button>
           </Nav.Item>
         }
