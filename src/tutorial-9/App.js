@@ -4,15 +4,20 @@ function App() {
   const [users, setUsers] = useState([]);
 
   const getUsers = async () => {
-    const response = await fetch(
-      'https://62544efc19bc53e2347c5576.mockapi.io/users'
-    );
+    try {
+      const response = await fetch(
+        'https://62544efc19bc53e2347c5576.mockapi.io/user'
+      );
 
-    if (response.ok) {
-      return setUsers(await response.json());
+      if (!response.ok) {
+        throw `Ошибка сервера ${response.status}`;
+      }
+
+      setUsers(await response.json());
+    } catch (err) {
+      console.error(err);
+      setUsers([]);
     }
-    console.error(`Ошибка сервера ${response.status}`);
-    setUsers([]);
   };
 
   return (
