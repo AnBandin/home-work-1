@@ -1,0 +1,15 @@
+
+.App {
+    width: 550px;
+    padding: 40px;
+}
+
+.rows {
+    display: flex;
+}
+
+
+.MuiTextField-root,
+.MuiButton-root {
+    margin: 0 15px !important;
+}
